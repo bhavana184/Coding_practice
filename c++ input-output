@@ -1,0 +1,20 @@
+using namespace std;
+
+int main() {
+	//code
+	int i=0;
+	int t,a,b,p;
+	//cout<<"no. of test cases you will enter?: ";
+	cin>>t;
+	for(i=0;i<t;i++)
+	{
+	    //cout<<"enter a:";
+	    cin>>a;
+	    //cout<<"enter b:";
+	    cin>>b;
+	    p=a*b;
+	    cout<<p;
+	    cout<<endl;
+	}
+	return 0;
+}

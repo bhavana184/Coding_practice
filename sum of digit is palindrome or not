@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	for(int k=1;k<=t;k++)
+	{
+	    int n,n1,s=0,d1,d2,rev=0,s1;
+	    cin>>n;
+	    n1=n;
+	    while(n1>0)
+	    {
+	        d1=n1%10;
+	        s=s+d1;
+	        n1=n1/10;
+	    }
+	    s1=s;
+	    while(s1>0)
+	    {
+	        d2=s1%10;
+	        rev=(rev*10)+d2;//IMP
+	        s1=s1/10;
+           }
+	    if(s==rev)
+	        cout<<"YES"<<endl;
+	       else
+	        cout<<"NO"<<endl;
+	}
+	return 0;
+}

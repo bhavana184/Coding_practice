@@ -1,0 +1,22 @@
+#include<math.h>
+using namespace std;
+
+int main() {
+	//code
+	long int t,n,s;////IMP!!//reason?? for long int
+	cin>>t;//no. of test cases
+	
+	for(int k=1;k<=t;k++)
+	{   cin>>n;s=0;
+	    
+	        for(int i=1;i<=n*2;i++)
+	        {
+	            if(i%2==0)
+	               s=s+(i*i);
+	        }
+	    cout<<s<<endl;
+	    
+	}
+	
+	return 0;
+}

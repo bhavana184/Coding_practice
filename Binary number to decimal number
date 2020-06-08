@@ -1,0 +1,23 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main() {
+ int t;
+ cin>>t;
+for(int k=1;k<=t;k++)
+	{   
+	    //n=binary no.,nd=decimal quivalent of n
+	    unsigned long long int n,nd=0,i=0;//IMP , using int doesn't work for all test cases
+	    cin>>n;
+	    while(n>0)
+	    {   
+	        nd+=(n%10)*pow(2,i);
+	        i++;
+	       // if(i<16)//since there can be max 16 digits, power will go till 15
+	       //time exceeded using if statement
+	            n/=10;
+	    }
+	    cout<<nd<<endl;
+	}
+	return 0;
+}

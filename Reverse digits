@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    unsigned long int n,rev=0;//IMP
+	    cin>>n;
+	    while(n!=0){
+	           /* d=n%10;
+	            if(d!=0)
+	                cout<<d; 
+	            n=n/10;*/
+	        //cout<<d;
+	        rev=rev*10+n%10;
+	        n=n/10;
+	    }
+	    cout<<rev<<endl;
+	}
+	return 0;
+}

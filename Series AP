@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int a,b,n,tn=0;
+	    cin>>a>>b;//a=term 1 of AP,b=term2 of AP
+	    //cin>>b;//term2 of AP
+	    cin>>n;//nth term
+	    int d;//b-a
+	    d=b-a;
+	    tn=a+(n-1)*d;
+	    cout<<tn<<endl;
+	}
+	return 0;
+}

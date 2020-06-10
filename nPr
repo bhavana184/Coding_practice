@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+   long long int fact(int);
+	int t;
+	cin>>t;
+	while(t--){
+	   long long int n,r,nPr,a,b;
+	    cin>>n>>r;
+	    a=fact(n);
+	    b=fact(n-r);
+	    //nPr=fact(n)/fact(n-r);
+	    nPr=a/b;
+	    //cout<<"fact(n):"<<a<<endl;
+	    //cout<<"fact(n-r): "<<b<<endl;
+	    //cout<<"nPr: "<<nPr<<endl;
+	   cout<<nPr<<endl;
+	}
+	return 0;
+}
+long long int fact(int n){
+    long long int f=1;
+    for(int i=n;i>=1;i--)
+        f=f*i;
+    return f;
+    }

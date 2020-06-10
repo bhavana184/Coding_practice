@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,flag=0;
+	    cin>>n;
+	    int a[n];//IMP after reading n only a[n] is valid
+	    for(int i=1;i<=n;i++){
+	        cin>>a[i];
+	    }
+	    for(int i=1;i<=n;i++){
+	        if(i==a[i])
+	           { cout<<a[i]<<" ";
+	             flag=1;
+	           }
+	        /*else 
+	            cout<<"Not found ";*/
+	    }
+	    if(flag==0)
+	        cout<<"Not Found";
+	    cout<<endl;
+	}
+	return 0;
+}

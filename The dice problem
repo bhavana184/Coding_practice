@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+		int t;
+	cin>>t;
+	while(t--){
+	    int n,o;//n=no. entered by user, o=no. on the oppsite face
+	    cin>>n;
+	    o=7-n;//since no. on the opposite face sums to 7 in an ordinary dice
+	    cout<<o<<endl;
+	}
+	return 0;
+}

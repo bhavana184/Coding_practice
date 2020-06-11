@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	void print(int);
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,p;
+	    cin>>n;
+	   print(n);
+	   // cout<<p<<" "<<endl;
+	   cout<<endl;
+	    
+	}
+	
+	return 0;
+}
+void print(int n)
+	{
+	   if(n>0){
+	       print(n-1);
+	       cout<<n<<" ";
+	   }
+	}

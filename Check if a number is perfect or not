@@ -1,0 +1,22 @@
+//https://practice.geeksforgeeks.org/problems/check-if-a-number-is-perfect-square/0
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    double n,s;
+	    cin>>n;
+	    s=sqrt(n);
+	    //cout<<"sqrt(n): "<<s<<endl;
+	    //cout<<"floor(sqrt(n)): "<<floor(s)<<endl;
+	    if(s-floor(s)==0)
+	        cout<<"1"<<endl;
+	    else
+	        cout<<"0"<<endl;
+	}
+	return 0;
+}

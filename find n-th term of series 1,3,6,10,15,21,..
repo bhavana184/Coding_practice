@@ -1,0 +1,18 @@
+//https://practice.geeksforgeeks.org/problems/find-n-th-term-of-series-1-3-6-10-15-21/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    unsigned long int n,tn;
+	    cin>>n;//n of nth term
+	    //a=1,b=3;//a=first term, b=second term
+	    //d=b-a;//d=difference between two consecutive terms
+	    tn=(n*(n+1))/2;
+	    cout<<tn<<endl;
+	}
+	return 0;
+}

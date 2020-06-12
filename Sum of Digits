@@ -1,0 +1,19 @@
+//https://practice.geeksforgeeks.org/problems/sum-of-digits/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    unsigned long int n,s=0;//given number
+	    cin>>n;
+	    while(n>0){
+	        s+=(n%10);
+	        n=n/10;
+	    }
+	    cout<<s<<endl;
+	  	}
+	return 0;
+}

@@ -1,0 +1,20 @@
+//https://practice.geeksforgeeks.org/problems/greatest-of-three-numbers/0/
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	   unsigned long int a,b,c;
+	   cin>>a>>b>>c;
+	    if(a>b&&a>c)
+	        cout<<a<<endl;
+	       else if(b>c&&b>a)
+	        cout<<b<<endl;
+	        else if(c>a&&c>b)
+	            cout<<c<<endl;
+	}
+	return 0;
+}

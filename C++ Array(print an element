@@ -1,0 +1,22 @@
+//https://practice.geeksforgeeks.org/problems/c-array-print-an-element-set-2/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,i;
+	    cin>>n;//no. of elements in array
+	    cin>>i;//index
+	    int a[n];
+	    for(int j=0;j<n;j++)
+	        cin>>a[j];
+	    for(int j=0;j<n;j++){
+	        if(j==i)
+	            cout<<a[j]<<endl;
+	    }
+	}
+	return 0;
+}

@@ -1,0 +1,18 @@
+//https://practice.geeksforgeeks.org/problems/cube-root-of-a-number/0
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    double n,c;
+	    cin>>n;
+	   c=floor(pow(n,1.0/3.0));//or cbrt(n)
+	  // c=floor(cbrt(n));
+	    cout<<c<<endl;
+	}
+	return 0;
+}

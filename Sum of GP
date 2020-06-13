@@ -1,0 +1,23 @@
+//https://practice.geeksforgeeks.org/problems/sum-of-gp/0/
+#include <iostream>
+#include<math.h>
+#include<iomanip>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    double n,a,r;
+	    cin>>n;
+	    cin>>a>>r;
+	    double sum=0.0;
+	    if(r!=1)
+	        sum=(a*(1-pow(r,n)))/(1-r);
+	   else 
+	        sum=n*a;//since, if r=1, GP = 1 1 1 1... or 2 2 2 2.... i.e a a a....
+	    cout<<fixed<<setprecision(6)<<sum<<endl;
+	}
+	return 0;
+}

@@ -1,0 +1,16 @@
+//https://practice.geeksforgeeks.org/problems/sum-of-series/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,s=0;
+	    cin>>n;
+	    s=(n*(n+1))/2;
+	    cout<<s<<endl;
+	}
+	return 0;
+}

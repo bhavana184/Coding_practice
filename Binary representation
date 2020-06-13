@@ -1,0 +1,26 @@
+//https://practice.geeksforgeeks.org/problems/binary-representation/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,b[14];
+	    cin>>n;
+	    for(int i=0;i<14;i++)
+	        b[i]=0;
+	    for(int i=13;i>=0&&n>0;i--){
+	        if(n%2==0)
+	            b[i]=0;
+	         else
+	            b[i]=1;
+	        n=n/2;
+	    }
+	    for(int i=0;i<14;i++)
+	        cout<<b[i];
+	   cout<<endl;
+	    }
+	return 0;
+}

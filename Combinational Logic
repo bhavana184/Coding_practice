@@ -1,0 +1,16 @@
+//https://practice.geeksforgeeks.org/problems/combinational-logic/0/
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int A,B,C,D,E,F,O;
+	    cin>>A>>B>>C>>D>>E>>F;
+	    O=((!A)&&B)||(C&&D)||(E&&(!F));
+	    cout<<O<<endl;
+	}
+	return 0;
+}

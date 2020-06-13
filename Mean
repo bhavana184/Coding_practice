@@ -1,0 +1,23 @@
+//https://practice.geeksforgeeks.org/problems/mean/0
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,sum=0;
+	    double mean;
+	    cin>>n;
+	    int m[n];//marks of n students
+	    for(int i=0;i<n;i++)
+	        cin>>m[i];
+	    for(int i=0;i<n;i++)
+	        sum+=m[i];
+	   mean=floor(sum/n);
+	   cout<<mean<<endl;
+	}
+	return 0;
+}

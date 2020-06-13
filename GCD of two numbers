@@ -1,0 +1,21 @@
+//https://practice.geeksforgeeks.org/problems/gcd-of-two-numbers/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    unsigned long int a,b,HCF;
+	    cin>>a>>b;
+	    HCF=a<b?a:b;//HCF of a and b can be max. be min(a,b) 
+	    //logic:https://www.youtube.com/watch?v=gh5UNVQ5_Zk
+	    for(;HCF>=1;HCF--)
+	        if(a%HCF==0 && b%HCF==0)
+	            break;
+	            
+	   cout<<HCF<<endl;
+	}
+	return 0;
+}

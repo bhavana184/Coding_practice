@@ -1,0 +1,34 @@
+//https://practice.geeksforgeeks.org/problems/diagonal-sum/0/
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int M;
+	    cin>>M;
+	    int A[M][M],lsum=0,rsum=0,sum=0;//lsum=0,rsum=0,
+	    //lsum=left diagonal sum,rsum=right diagonal sum
+	    for(int i=0;i<M;i++)
+	    {
+	        for(int j=0;j<M;j++)
+	            cin>>A[i][j];
+	    }
+	    for(int i=0;i<M;i++)
+	    {
+	        for(int j=0;j<M;j++)
+	       {
+	           if(i==j)
+	                lsum+=A[i][j];
+	           if((i+j)==(M-1))
+	                rsum+=A[i][j];
+	       }
+	    }
+	   sum=lsum+rsum;
+	   //cout<<lsum<<" "<<rsum<<" "<<sum<<endl;
+	    cout<<sum<<endl;
+	}
+	return 0;
+}

@@ -1,0 +1,16 @@
+//https://practice.geeksforgeeks.org/problems/cpp-loops-set-1-print-a-string-n-times/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int N;
+	    cin>>N;
+	    for(int i=0;i<N;i++)
+	        cout<<"GeeksforGeeks"<<endl;
+	}
+	return 0;
+}

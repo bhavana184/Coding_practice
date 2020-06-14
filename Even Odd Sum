@@ -1,0 +1,25 @@
+//https://practice.geeksforgeeks.org/problems/even-odd-sum/0/
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int N;
+	    cin>>N;
+	    unsigned long int Arr[N],evenSum=0,oddSum=0;
+	    for(int i=0;i<N;i++)
+	        cin>>Arr[i];
+	    for(int i=0;i<N;i++){
+	        if(i%2==0)
+	            evenSum+=Arr[i];
+	        else
+	            oddSum+=Arr[i];
+	    }
+	    cout<<evenSum<<endl;
+	    cout<<oddSum<<endl;
+	}
+	return 0;
+}

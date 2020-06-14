@@ -1,0 +1,20 @@
+//https://practice.geeksforgeeks.org/problems/c-if-else-decision-making/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int N;
+	    cin>>N;
+	    if(N>5)
+	        cout<<"Greater than 5"<<endl;
+	        else if(N<5)
+	            cout<<"Less than 5"<<endl;
+	            else if(N==5)
+	                cout<<"Equal to 5"<<endl;
+	}
+	return 0;
+}

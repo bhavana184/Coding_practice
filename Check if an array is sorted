@@ -1,0 +1,57 @@
+//https://practice.geeksforgeeks.org/problems/check-if-an-array-is-sorted/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int N,s=0;//s=flag that tells whether array is sorted or not
+	    cin>>N;
+	    int A[N];
+	    for(int i=0;i<N;i++)
+	        cin>>A[i];
+	   if(N==1)
+	       s=1;//single element is always sorted
+	   
+	   int min=A[0],minindex=0;
+	    for(int i=0;i<N;i++)
+	    {
+	        if(A[i]<min)
+	          {  min=A[i];
+	             minindex=i;
+	          }
+	    }
+	    
+	    //cout<<"minindex: "<<minindex<<" min: "<<min<<endl;
+	    for(int i=0;i<N-1;i++)
+	    {
+	        if(minindex==0)
+	        { //cout<<"ascending order"<<endl;;
+	            if(A[i+1]<A[i])
+	            {
+	            	//cout<<"A[i]: "<<A[i]<<" A[i+1]: "<<A[i+1]<<" inside if asc"<<endl;
+	                s=0;
+	                break;
+	            }
+	            else 
+	            	s=1;//for 2 elements eg: 3 2
+	        }
+	      /*  else if(minindex==N-1)
+	        { cout<<"descending order"<<endl;
+	            if(A[i+1]>A[i])
+	            {
+	            	cout<<"A[i]: "<<A[i]<<" A[i+1]: "<<A[i+1]<<" inside if desc"<<endl;
+	                s=0;
+	                break;
+	            }
+	        }*/
+	    }
+	    if(s==0)
+	       cout<<"0"<<endl;
+	    else 
+	        cout<<"1"<<endl;
+	}
+	return 0;
+}

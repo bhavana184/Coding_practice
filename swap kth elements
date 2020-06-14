@@ -1,0 +1,25 @@
+//https://practice.geeksforgeeks.org/problems/swap-kth-elements/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	int N,k,temp;
+	cin>>N>>k;
+	int A[N];
+	for(int i=0;i<N;i++)
+	    cin>>A[i];
+	   
+	temp=A[k-1];
+	A[k-1]=A[N-k];
+	A[N-k]=temp;
+	//cout<<"A[k-1]:"<<A[k-1]<<" A[N-k]:"<<A[N-k]<<endl;
+     for(int i=0;i<N;i++)
+	  	cout<<A[i]<<" ";
+    cout<<endl;
+	}
+	return 0;
+}

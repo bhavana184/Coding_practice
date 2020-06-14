@@ -1,0 +1,25 @@
+//https://practice.geeksforgeeks.org/problems/c-operators/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int A,B,s=0,d=0,p=0,q=0;
+	    cin>>A>>B;
+	    s=A+B;
+	    if(A>B)
+	        d=A-B;
+	    else
+	        d=B-A;
+	   p=A*B;
+	    q=A>B?A/B:B/A;
+	    cout<<s<<endl;
+	    cout<<d<<endl;
+	    cout<<q<<endl;
+	    cout<<p<<endl;
+	}
+	return 0;
+}

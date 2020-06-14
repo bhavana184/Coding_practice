@@ -1,0 +1,22 @@
+//https://practice.geeksforgeeks.org/problems/count-digits/0/
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int N,N1,count=0,d;
+	    cin>>N;
+	    N1=N;
+	    while(N1>0){
+	        d=N1%10;
+	        if(d!=0 && N%d==0)
+	           count++;
+	        N1=N1/10;
+	    }
+	    cout<<count<<endl;
+	}
+	return 0;
+}

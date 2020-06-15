@@ -1,0 +1,29 @@
+//https://practice.geeksforgeeks.org/problems/compete-the-skills/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	   int Ascore=0,Bscore=0,A[3],B[3];
+	  for(int i=1;i<=3;i++)
+	    cin>>A[i];
+	   for(int i=1;i<=3;i++)
+	    cin>>B[i];
+	    for(int i=1;i<=3;i++)
+	    {
+	        if(A[i]>B[i])
+	            Ascore++;
+	        else if(B[i]>A[i])
+	            Bscore++;
+	        else{
+	            Ascore=Ascore;
+	            Bscore=Bscore;
+	        }
+	    }
+	    cout<<Ascore<<" "<<Bscore<<endl;
+	}
+	return 0;
+}

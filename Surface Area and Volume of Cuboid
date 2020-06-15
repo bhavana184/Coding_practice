@@ -1,0 +1,17 @@
+//https://practice.geeksforgeeks.org/problems/surface-area-and-volume-of-cuboid/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	   unsigned long int l,b,h,sa,vol;
+	   cin>>l>>b>>h;
+	   sa=2*((l*b)+(b*h)+(l*h));
+	   vol=l*b*h;
+	   cout<<sa<<" "<<vol<<endl;
+	}
+	return 0;
+}

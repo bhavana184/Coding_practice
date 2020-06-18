@@ -1,0 +1,26 @@
+//https://practice.geeksforgeeks.org/problems/average/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int N;
+	    cin>>N;
+	    int C[N],sum=0,avg,count=0;
+	    for(int i=0;i<N;i++)
+	        cin>>C[i];
+	     for(int i=0;i<N;i++)
+	     {
+	        count++;
+	        sum=(sum+C[i]);
+	        avg=sum/count;
+	        cout<<avg<<" ";
+	     }
+	     cout<<endl;
+	   
+	}
+	return 0;
+}

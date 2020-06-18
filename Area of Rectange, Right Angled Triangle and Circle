@@ -1,0 +1,19 @@
+//https://practice.geeksforgeeks.org/problems/area-of-rectange-right-angled-triangle-and-circle/0
+#include <iostream>
+//#include<math.h>
+using namespace std;
+
+int main() {
+	//code
+	unsigned long int t;
+	cin>>t;
+	while(t--){
+	   unsigned long int l,w,b,h,r,RA,TA,CA;
+	    cin>>l>>w>>b>>h>>r;
+	    RA=(l*w);//area of rectangle
+	    TA=(0.5*(b*h));//area of right triangle
+	    CA=(3.14*r*r);//area of circle
+	    cout<<RA<<" "<<TA<<" "<<CA<<endl;
+	}
+	return 0;
+}

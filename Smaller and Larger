@@ -1,0 +1,27 @@
+//https://practice.geeksforgeeks.org/problems/smaller-and-larger/0/
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,x,c1=0,c2=0;
+	    cin>>n>>x;//n:no. of elements, x:given elemnt
+	    int a[n];
+	    for(int i=0;i<n;i++)
+	        cin>>a[i];
+	    for(int i=0;i<n;i++)
+	   {
+	       if(a[i]<x) c1++;
+	       else if(a[i]>x)c2++;
+	       else if(a[i]==x)
+	       {
+	           c1++;c2++;
+	       }
+	   }
+	   cout<<c1<<" "<<c2<<endl;
+	}
+	return 0;
+}

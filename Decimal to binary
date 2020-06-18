@@ -1,0 +1,36 @@
+//https://practice.geeksforgeeks.org/problems/decimal-to-binary/0
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int main() {
+	//code
+int t;
+cin>>t;
+while(t--)
+{
+	int n;
+	cin>>n;
+	//A positive integer n has b bits when 2b-1 = n = 2b – 1.
+	//b=floor(log(base 2)(n))+1;
+	int b;//min. no. of bits in binary of given decimal no. n
+	b=floor(log2 (n))+1;
+	int a[b];
+	for(int i=1;i<=b;i++)
+		a[i]=0;
+    int	i=b;
+    int n1;
+    n1=n;
+	while(n1>0)
+	{   
+	    if(n1%2!=0)
+	        a[i]=1;
+	    n1=n1/2;
+	    i--;
+	}
+	for(int i=1;i<=b;i++)
+	    cout<<a[i];
+	cout<<endl;
+}
+	return 0;
+}

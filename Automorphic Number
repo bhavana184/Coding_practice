@@ -1,0 +1,52 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,sq,d1,d2,n1,n2,nd1;
+	   // cout<<"n: ";
+	    cin>>n;
+	    sq=n*n;
+	  //  cout<<"sq: "<<sq<<endl;
+	    n1=n;n2=sq;
+	    nd1=log10(n)+1;
+	  //  cout<<"no. of digits in n: "<<nd1<<endl;
+	    int flag[nd1];
+	    for(int i=1;i<=nd1;i++)
+	    	flag[i]=0;
+	   // for(int i=1;i<=nd1;i++)
+	    //	cout<<flag[i];
+	    int i=1;
+	    while(n1>0){
+	    	//flag[i]=0;
+	        d1=n1%10;d2=n2%10;
+	       // cout<<"i: "<<i<<" d1: "<<d1<<" d2:"<<d2;
+	        if(d1==d2)
+	            flag[i]=1;
+	       // cout<<" flag["<<i<<"]:"<<flag[i];
+	        n1=n1/10;n2=n2/10;
+	      //  cout<<" n1: "<<n1<<" n2: "<<n2<<endl;
+	        i++;
+	    }
+	    int autoFlag=1;
+	    //cout<<"autoFlag initial: " <<autoFlag<<endl;
+	    for(int j=1;j<=nd1;j++){
+	    	if(flag[j]==0)
+	    		{
+	    			autoFlag=0;
+	    			break;
+				}
+		}
+		//cout<<"autoFlag Now: "<<autoFlag<<endl;
+		if(autoFlag==0) cout<<"Not Automorphic"<<endl;
+			else  cout<<"Automorphic"<<endl;
+	    //cout<<"flag="<<flag<<endl;
+	   // if(flag==1) cout<<"Automorphic"<<endl;
+	    //else if(flag==0) cout<<"Not Automorphic"<<endl;
+	}
+	return 0;
+}

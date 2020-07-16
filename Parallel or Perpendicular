@@ -1,0 +1,23 @@
+//https://practice.geeksforgeeks.org/problems/parallel-or-perpendicular/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int ax,ay,az,bx,by,bz,ab,axb1,axb2,axb3,axbsq;
+	    cin>>ax>>ay>>az;
+	    cin>>bx>>by>>bz;
+	    ab=(ax*bx)+(ay*by)+(az*bz);
+	    axb1=((ay*bz)-(az*by));
+	    axb2=((ax*bz)-(bx*az));
+	    axb3=((ax*by)-(ay*bx));
+	    axbsq=(axb1*axb1)+(axb2*axb2)+(axb3*axb3);
+	    if(ab==0) cout<<"2"<<endl;//perpendicular
+	    else if(axbsq==0)cout<<"1"<<endl;//parallel
+	    else cout<<"0"<<endl;
+	}
+	return 0;
+}

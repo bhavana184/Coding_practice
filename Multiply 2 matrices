@@ -1,0 +1,32 @@
+//https://practice.geeksforgeeks.org/problems/multiply-2-matrices/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int a1,b1,c1,d1,e1,f1,g1,h1,i1,a2,b2,c2,d2,e2,f2,g2,h2,i2,a3,b3,c3,d3,e3,f3,g3,h3,i3;
+	    cin>>a1>>b1>>c1;
+	    cin>>d1>>e1>>f1;
+	    cin>>g1>>h1>>i1;
+	    cin>>a2>>b2>>c2;
+	    cin>>d2>>e2>>f2;
+	    cin>>g2>>h2>>i2;
+	    a3=(a1*a2)+(b1*d2)+(c1*g2);
+	    b3=(a1*b2)+(b1*e2)+(c1*h2);
+	    c3=(a1*c2)+(b1*f2)+(c1*i2);
+	    d3=(d1*a2)+(e1*d2)+(f1*g2);
+	    e3=(d1*b2)+(e1*e2)+(f1*h2);
+	    f3=(d1*c2)+(e1*f2)+(f1*i2);
+	    g3=(g1*a2)+(h1*d2)+(i1*g2);
+	    h3=(g1*b2)+(h1*e2)+(i1*h2);
+	    i3=(g1*c2)+(h1*f2)+(i1*i2);
+	    cout<<a3<<" "<<b3<<" "<<c3<<endl;
+	    cout<<d3<<" "<<e3<<" "<<f3<<endl;
+	    cout<<g3<<" "<<h3<<" "<<i3<<endl;
+	    
+	}
+	return 0;
+}

@@ -1,0 +1,43 @@
+//https://practice.geeksforgeeks.org/problems/find-the-median/0
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,median,temp,pos;
+	    cin>>n;//no. of students
+	    int marks[n];//marks of n students
+	    for(int i=1;i<=n;i++)
+	        cin>>marks[i];
+	   //sorting - ASCENDING ORDER -- for median array shoud be sorted
+    	for(int i=1;i<=n;i++)
+	    {		
+		    for(int j=i+1;j<=n;j++)
+		   {
+			    if(marks[i]>marks[j])
+			    {
+				temp  =marks[i];
+				marks[i]=marks[j];
+				marks[j]=temp;
+			    }
+		    }
+	    }
+	    if(n%2==0)//n=even
+	    {   
+	        pos=n/2;
+	        median=(marks[pos]+marks[pos+1])/2;
+	    }
+	    else //n=odd
+	    {
+	        pos=ceil(n/2);
+	        median=marks[pos+1];
+	    }
+	    cout<<floor(median)<<endl;
+	}
+	return 0;
+}

@@ -1,0 +1,39 @@
+//https://practice.geeksforgeeks.org/problems/find-index/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    unsigned long int n, x,startpos=-1,endpos=-1,found=0;
+	    cin>>n;//no. of elements in an array
+	    unsigned long int a[n];
+	    for(int i=0;i<n;i++)
+	        cin>>a[i];
+	   cin>>x;//key to be searched
+	   for(int i=0;i<n;i++)
+	   {
+	       if(a[i]==x)
+	       {
+	           found=1;
+	           startpos=i;
+	           break;
+	       }
+	   }
+	   for(int i=n-1;i>=0;i--)
+	   {
+	       if(a[i]==x)
+	       {
+	           found=1;
+	           endpos=i;
+	           break;
+	       }
+	   }
+	   if(found==1) cout<<startpos<<" "<<endpos<<endl;
+	   else if(found==0) cout<<"-1"<<endl;
+	}
+	return 0;
+}

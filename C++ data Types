@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	//code
+	
+	    int n1;char n2; float n3;
+	    cin>>n1>>n2>>n3;
+	   // cout<<endl;
+	    cout<<n1<<endl;
+	    cout<<n2<<endl;
+	    cout<<n3<<endl;
+
+	return 0;
+}

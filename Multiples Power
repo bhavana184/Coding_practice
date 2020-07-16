@@ -1,0 +1,21 @@
+//https://practice.geeksforgeeks.org/problems/multiples-power/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    unsigned long long int n,sum=0;
+	    cin>>n;
+	    for(int i=3;i<n;i++)//loop start from 3 as lowest multiple of 3 is 3
+	       { 
+	            if(i%3==0||i%7==0)
+	            sum=sum+i;
+	       }
+	   cout<<sum<<endl;
+	}
+	return 0;
+}

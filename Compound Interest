@@ -1,0 +1,22 @@
+//https://practice.geeksforgeeks.org/problems/compound-interest/0
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	//long int p;
+    float p,fp,y,n,r;
+    //p:principal amt,y:time in years,r:rate,n:compounds n times
+	//fp:Future value of principal amount
+	cin>>p>>y>>n>>r;
+    fp=p*pow((1+(r/(100.0*n))),(n*y));
+    //cout<<"fp"<<fp<<endl;
+	cout<<floor(fp)<<endl;
+	}
+	return 0;
+}

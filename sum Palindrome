@@ -1,0 +1,60 @@
+//https://practice.geeksforgeeks.org/problems/sum-palindrome/0
+#include <iostream>
+using namespace std;
+ int rev;
+ int palindrome(int n);
+int reversenum(int n);
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	   long int n,npi,p,i,num;
+	   cin>>n;
+	   num=n;
+	   p=palindrome(n);
+	   if(p==1)
+	   { 
+	   //	cout<<" palindrome ";
+	     cout<<n<<endl;
+	     break;
+	   } 
+	   else if(p==0)
+	   {
+	            for(i=1;i<=5;i++)	
+	            {
+				//	cout<<"i: "<<i<<" n: "<<n<<" reversenum: "<<reversenum(num);
+	                npi=reversenum(num)+num;
+	               // cout<<" npi: "<<npi<<endl;
+	                p=palindrome(npi);
+	                if(p==1){
+	                //	cout<<" palindrome ";
+	                    cout<<npi<<endl;
+	                    break;
+	                }
+	               	else
+	               		num=npi;
+	               		
+	            }      
+	   }
+	   if(i==6) cout<<"-1"<<endl;
+	}
+	return 0;
+}
+int reversenum(int n)
+{	
+	rev=0;
+    int n1=n;
+    while(n1>0){
+	        rev=rev*10+(n1%10);
+	        n1=n1/10;
+	    }
+	 return rev;
+}
+int palindrome(int n)
+{
+    rev=reversenum(n);
+    if(rev==n) return 1;
+    else return 0;
+}

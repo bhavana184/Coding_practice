@@ -1,0 +1,55 @@
+//https://practice.geeksforgeeks.org/problems/full-prime/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int chkprime(unsigned long long int n);
+	int t;
+	cin>>t;
+	while(t--){
+	   unsigned long long int n,n1,d,chkn=0,chkd=0,fp=0;
+	   cin>>n;
+	  chkn=chkprime(n);
+	  if(chkn==1)
+	    fp=1;
+	   else fp=0;
+	  n1=n;
+	  while(n1>0){
+	      d=n1%10;
+	      chkd=chkprime(d);
+	      if(chkd==0)
+	      {
+	          fp=0;
+	          break;
+	      }
+	      // else if(chkd==1) fp=1;
+	      n1=n1/10;
+	  }
+	  
+	  if(fp==1) cout<<"Yes"<<endl;
+	  else cout<<"No"<<endl;
+	}
+	return 0;
+}
+int chkprime(unsigned long long int n)
+{
+  int flag=0;
+  if(n==1||n==0) return 0;//0,1:neither prime nor composite
+    else
+    {   
+    for(int i=2;i<n;i++)
+	   {
+	       if(n%i==0)
+	        {
+	               flag=1;
+	               break;
+	        }
+	   }
+	   if(flag==0)
+	        //cout<<n<<"is prime"<<endl;
+	        return 1;
+	  /* else if(flag==1)
+	        cout<<n<<"is not prime"<<endl;  */
+    }
+}

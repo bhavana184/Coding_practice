@@ -1,0 +1,21 @@
+//https://practice.geeksforgeeks.org/problems/sum-of-odd-and-even-elements/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    unsigned long int n,os=0,es=0;
+	    cin>>n;
+	    for(int i=1;i<=n;i++)
+	    {
+	        if(i%2==0)	es+=i;
+	        else os+=i;
+	    }
+	    cout<<os<<" "<<es<<endl;
+	}
+	return 0;
+}

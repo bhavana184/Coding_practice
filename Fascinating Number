@@ -1,0 +1,87 @@
+//https://practice.geeksforgeeks.org/problems/fascinating-number/0
+#include <iostream>
+#include<string>
+//#include<cstring>
+using namespace std;
+
+bool check_num(string n){
+    //cout<<"length of n : "<<n.length()<<endl;
+    bool visited[9]={false};
+    
+    for(int i=0;i<n.length();i++){
+        int digit=n[i]-'0';
+//https://stackoverflow.com/questions/15598698/why-does-subtracting-0-in-c-result-in-the-number-that-the-char-is-representing?lq=1
+/*
+the char are all represented by a number and '0' is the first of them all.
+On the table below you see that:
+'0' => 48
+'1' => 49
+...
+'9' => 57.
+As a result: ('9' - '0') = (57 − 48) = 9
+*/
+        if(visited[digit]>0){
+            return false;
+        }
+        else{
+            visited[digit]++;
+        }
+    }
+    
+    for(int i=1;i<=9;i++){
+        if(visited[i]==false){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    unsigned long int n;
+	    cin>>n;
+	    string sn,sn2,sn3;
+	    sn=to_string(n);
+	   // cout<<"sn : "<<sn<<endl;
+	    sn2=to_string(n*2);
+	   // cout<<"sn2: "<<sn2<<endl;
+	    sn3=to_string(n*3);
+	    //cout<<"sn3: "<<sn3<<endl;
+	    string res = sn+sn2+sn3;
+	   // cout<<"res: "<<res<<endl;
+	     int len=res.length();
+	    //copying res string into array r
+	    //referred :https://www.geeksforgeeks.org/convert-string-char-array-cpp/
+	   /* cout<<"len: "<<len<<endl;
+	   char char_res[len+1];
+	   strcpy(char_res,res.c_str());
+	   cout<<"char_res : ";
+	   for (int i = 0; i < len; i++) 
+             cout << char_res[i]<<" "; 
+        cout<<endl;
+        
+        for(int i=0;i<10;i++)
+        {
+            if(char_res[i]==i+1)
+                
+        }*/
+        //Question doesn't match with the output that the program require.
+        if(n<100)
+            cout<<"Number should be atleast three digits"<<endl;
+	    else//since no. should have 3 digits or more
+	    {
+	        if(check_num(res)){
+	            cout<<"Fascinating\n";//Fascinating
+	        }
+	        else{
+	            cout<<"Not Fascinating\n";//Not Fascinating
+	        }
+	    }
+	    
+	}
+	return 0;
+}

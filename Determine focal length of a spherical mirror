@@ -1,0 +1,25 @@
+//https://practice.geeksforgeeks.org/problems/determine-focal-length-of-a-spherical-mirror/0
+#include <iostream>
+#include<cmath>
+#include<string>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    string mirror_type; 
+	    //0123456     012345
+	    //concave     convex
+	    cin>>mirror_type;
+	    float r,f;
+	    cin>>r;
+	    if(mirror_type[3]=='c')//concave
+	        f=r/2;
+	    else 
+	        f=-r/2;
+	   cout<< floor(f)<<endl;
+	}
+	return 0;
+}

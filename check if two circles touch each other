@@ -1,0 +1,24 @@
+//https://practice.geeksforgeeks.org/problems/checcheck-if-two-given-circles-touch-each-other/0
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    float x1,y1,x2,y2,r1,r2,d1,d2,d;
+	    cin>>x1>>y1>>x2>>y2>>r1>>r2;
+	    d1=r1+r2;  // cout<<"d1=r1+r2 : "<<d1<<endl;
+	    d2=abs(r1-r2);  //cout<<"d2=abs(r1-r2) : "<<d2<<endl;
+	    d=sqrt(((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1)));
+	   // cout<<"d(distance between two circles): "<<d<<endl;
+	    if(d<=d1 && d>=d2)
+	        cout<<"1"<<endl;
+	    else
+	        cout<<"0"<<endl;
+	    
+	}
+	return 0;
+}

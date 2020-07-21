@@ -1,0 +1,64 @@
+//https://practice.geeksforgeeks.org/problems/convert-time-from-12-hour-to-24-hour-format/0
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main() {
+	//code
+	unsigned long int t;
+	cin>>t;
+	while(t--)
+	{
+	    string t12;
+	    cin>>t12;
+	    // 0123456789   - length of string : 10  = t12.length()
+	    // 12:00:00AM
+	    // hh:mm:ss = h1h2:m1m2:s1s2
+	    int h1,h2,hh;//m1,m2,mm,s1,s2,ss;
+	    h1=t12[0]-'0';  //cout<<"h1: "<<h1<<" ";
+	    h2=t12[1]-'0';  //cout<<"h2: "<<h2<<" ";
+	    hh=(h1*10+h2*1); // cout<<"hh: "<<hh<<endl;
+	   /* m1=t12[3]-'0'; // cout<<"m1: "<<m1<<" ";
+	    m2=t12[4]-'0'; // cout<<"m2: "<<m2<<" ";
+	    mm=(m1*10+m2*1); // cout<<"mm: "<<mm<<endl;
+	    s1=t12[6]-'0'; // cout<<"s1: "<<s1<<" ";
+	    s2=t12[7]-'0';//  cout<<"s2: "<<s2<<" ";
+	    ss=(s1*10+s2*1); // cout<<"ss: "<<ss<<endl;*/
+	    if(t12[8]=='A')//AM
+	    {
+	        if(hh==12)
+	        {
+	            cout<<"00";
+	            for(int i=2;i<=7;i++)
+	                cout<<t12[i];
+	           cout<<endl;
+	        }
+	        else
+	        {
+	            for(int i=0;i<=7;i++)
+	                cout<<t12[i];
+	           cout<<endl;
+	        }
+	    }
+	    else //if(t12[8]=='P')//time in PM
+	    {
+	       if(hh==12)
+	        {
+	            cout<<"12";
+	            for(int i=2;i<=7;i++)
+	                cout<<t12[i];
+	           cout<<endl;
+	        }
+	        else
+	        {
+	            hh=hh+12;
+	            cout<<hh;
+	            for(int i=2;i<=7;i++)
+	                cout<<t12[i];
+	           cout<<endl;
+	        }
+	    }
+	    
+	}
+	return 0;
+}

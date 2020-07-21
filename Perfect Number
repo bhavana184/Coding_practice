@@ -1,0 +1,34 @@
+//https://practice.geeksforgeeks.org/problems/perfect-number/0
+#include <iostream>
+using namespace std;
+
+
+int factorial(int n){
+    int f=1;
+    for(int i=n;i>=1;i--)
+        f=f*i;
+    return f;
+}
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	   unsigned long int n,n1,sum=0;
+	   cin>>n;
+	   int d;
+	   n1=n;
+	   while(n1>0){
+	       d=n1%10;
+	      // cout<<"d: "<<d<<" factorial(d): "<<factorial(d)<<endl;
+	       sum= sum + factorial(d);
+	      // cout<<"sum: "<<sum<<endl;
+	       n1=n1/10;
+	   }
+	   if(n==sum)
+	    cout<<"Perfect"<<endl;
+	   else
+	    cout<<"Not Perfect"<<endl;
+	}
+	return 0;
+}

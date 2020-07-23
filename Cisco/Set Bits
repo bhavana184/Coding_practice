@@ -1,0 +1,20 @@
+//https://practice.geeksforgeeks.org/problems/set-bits/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    unsigned long int n,n1;
+	    cin>>n;
+	    n1=n;int count=0;
+	    while(n1>0){
+	        if(n1%2) count++;
+	       n1=n1/2; 
+	    }
+	    cout<<count<<endl;
+	}
+	return 0;
+}

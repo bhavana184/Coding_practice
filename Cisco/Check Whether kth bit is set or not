@@ -1,0 +1,21 @@
+//https://practice.geeksforgeeks.org/problems/check-whether-k-th-bit-is-set-or-not/0
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    long int n,k;
+	    cin>>n;
+	    cin>>k;
+	    //cout<<floor(log2(n))+1;
+	   // int countBit=floor(log2(n))+1;
+	   k=pow(2,k);
+	   if(n&k) cout<<"Yes"<<endl;
+	   else cout<<"No"<<endl;
+	}
+	return 0;
+}

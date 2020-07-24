@@ -1,0 +1,19 @@
+//https://practice.geeksforgeeks.org/problems/swap-every-two-bits-in-bytes/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    unsigned int x;
+	    cin>>x;
+	    //x=((x&0b10101010)>>1)|((x&0b01010101)<<1);
+	   // cout<<x<<endl;
+	    cout<<(((x&170)>>1)|((x&85)<<1));
+	    //170 = 10101010, 85=01010101
+	    cout<<endl;
+	}
+	return 0;
+}

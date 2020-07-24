@@ -1,0 +1,24 @@
+//https://www.youtube.com/watch?v=ZW7st_pN05w
+//https://practice.geeksforgeeks.org/problems/reverse-bits/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	  long long int x,result=0;
+	    cin>>x;
+	    //Help:https://www.youtube.com/watch?v=ZW7st_pN05w
+	    for(int i=0;i<32;i++)
+	    {
+	        result<<=1;//left shift result by 1
+	        if(x&1>0)result++;//if x current bit is 1
+	        x>>=1;//right shift x by 1.. to move to next bit to be checked
+	    }
+	    cout<<result<<endl;
+	}
+	
+	return 0;
+}

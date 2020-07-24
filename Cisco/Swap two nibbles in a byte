@@ -1,0 +1,15 @@
+//https://practice.geeksforgeeks.org/problems/swap-two-nibbles-in-a-byte/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	  int x;
+	  cin>>x;
+	  cout<<(((x&0b00001111)<<4)|((x&0b11110000)>>4))<<endl;
+	}
+	return 0;
+}

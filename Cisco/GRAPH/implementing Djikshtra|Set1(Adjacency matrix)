@@ -1,0 +1,87 @@
+//https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1
+//HELP:https://www.quora.com/How-do-I-return-a-vector-from-a-function-in-C++  : for returning vector to function
+//HELP:https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
+// { Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+vector <int> dijkstra(vector<vector<int>> , int ,int );
+
+int printSolution(vector <int> dist, int n)
+{
+  
+   for (int i = 0; i < n; i++)
+      printf("%d ", dist[i]);
+  
+}
+int main()
+{
+    int t;
+    int V;
+    cin>>t;
+    while(t--){
+        cin>>V;
+        
+        vector<vector<int>> g(V);
+        
+        for(int i = 0;i<V;i++){
+            vector<int> temp(V);
+            g[i] = temp;
+        }
+        
+        for(int i=0;i<V;i++)
+        {
+      	    for(int j=0;j<V;j++)
+      	    {
+      		    cin>>g[i][j];
+      	    }
+        }
+        
+        int s;
+        cin>>s;
+        
+        vector <int> res = dijkstra(g, s, V);
+        printSolution (res, V);
+        cout<<endl;
+       }
+        return 0;
+}// } Driver Code Ends
+
+
+//find min. distance edge
+int minDist(vector<int> dis,bool vis[],int V){
+   int min=INT_MAX, vertex;
+   for(int i=0;i<V;i++){
+       if(vis[i]==false && dis[i]<=min)
+        min=dis[i],vertex=i;
+   }
+   return vertex;
+}
+/*  Function to implement Dijkstra
+*   g: vector of vectors which represents the graph
+*   src: source vertex to start traversing graph with
+*   V: number of vertices
+*/
+vector <int> dijkstra(vector<vector<int> > g, int src, int V)
+{
+    // Your code here
+    vector<int> dis(V);//stores shortest distance edges
+    bool vis[V];//keep track of visited vertex
+    
+    for(int i=0;i<V;i++)
+        dis[i]=INT_MAX, vis[i]=false;
+    dis[src]=0;//distance from source to itself
+    //find shortest distance from source to all vertices
+    for(int i=0;i<V-1;i++){
+//pick minimum distance vertex 
+      int u=minDist(dis,vis,V);
+      vis[u]=true;
+//update distance value for vertices adjacent to u
+    for(int v=0;v<V;v++){
+        if(g[u][v] && !vis[v] && dis[u]!=INT_MAX && (dis[u]+ g[u][v])<dis[v])
+            dis[v]=dis[u]+g[u][v];
+    }//end for(int v=0;v<V;v++)
+}//end for(int i=0;i<V-1;i++)
+    
+    return dis;
+}//end of function

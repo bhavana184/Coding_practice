@@ -1,0 +1,90 @@
+//https://practice.geeksforgeeks.org/problems/minimum-spanning-tree/1
+// { Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+int spanningTree(int V, int E, vector<vector<int>> &graph);
+// Driver code
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int V, E;
+        cin >> V >> E;
+        vector<vector<int> > graph(V, vector<int>(V, INT_MAX));
+        int i=0;
+        while (i++<E) {
+            int u, v, w;
+            cin >> u >> v >> w;
+            u--, v--;
+            graph[u][v] = w;
+            graph[v][u] = w;
+        }
+
+        cout << spanningTree(V, E, graph) << endl;
+    }
+    return 0;
+}
+// } Driver Code Ends
+
+//FUNCTION TO RETURN MIN_WEIGHT EDGE
+/*int minWt(int wt[],bool mstSet[],int V)
+{
+    int min=INT_MAX,min_index;
+    for(int v=0;v<V;v++)
+    {
+        if(mstSet[v]==false && wt[v]<min)
+            min=wt[v],min_index=v;
+    }
+    return min_index;
+}*/
+int min_vertex(int key[], bool vis[], int V){
+    int min=INT_MAX, vertex;
+    for(int i=0;i<V;i++){
+        if(vis[i]==false && key[i]<min){
+            vertex=i;
+            min=key[i];
+        }
+    }
+    return vertex;//index of vertex is stored in vertex
+}
+// Function to construct and print MST for
+// a graph represented using adjacency
+// matrix representation, with V vertices.
+// graph[i][j] = weight if edge exits else INT_MAX
+int spanningTree(int V, int E, vector<vector<int> > &graph) {
+    // code here
+    //Using Prim's
+    int parent[V];//Array to store vertices that is included in MST
+    int key[V];//Array to store min. weight corresponding to each vertex
+    bool vis[V];
+    //array to keep track of vertices which have been included in MST
+    //True: vertex included in MST, False : not included
+    for(int i=0;i<V;i++)
+    {
+        key[i]=INT_MAX;//set weight for every vertex as infinity
+        vis[i]=false;
+//Initially,No vertex have been included in mst , so,set to false
+    }
+        key[0]=0;//weight corresponding to source vertex=0
+        parent[0]=-1;//source is root of mst and doesn't have any parent
+        for(int j=0;j<V-1;j++){//loops over edges
+//no. of edges in mst is one less than no. of vertices so loop from 0 to v-2
+        int u=min_vertex(key,vis,V);//pick min edge connected to j and return its index
+        vis[u]=true;//include that vertex u into mst
+        for(int v=0;v<V;v++){
+            if(graph[u][v]!=INT_MAX && vis[v]==false && graph[u][v]<key[v])
+               {
+                   parent[v]=u;
+                   key[v]=graph[u][v];
+               }
+        }
+    }
+    int sumWt=0;
+    for(int i=1;i<V;i++)
+    {
+        //sumWt+=graph[i][parent[i]];
+        sumWt+=key[i];//key has minimum edge for each vertex in mst
+    }
+    return sumWt;
+}

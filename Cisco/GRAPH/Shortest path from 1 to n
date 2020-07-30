@@ -1,0 +1,32 @@
+//https://practice.geeksforgeeks.org/problems/shortest-path-from-1-to-n/0
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n;
+	    cin>>n;
+	  //  vector<vector<int> >g;//2D vector 
+	  /*  for(int i=1;i<=n;i++)
+	    {
+	       for(int j=1;j<=n;j++)
+	       {
+	           if(j==i+1 || j==3*i)
+	                 g[i][j]=1;
+	           else g[i][j]=0;
+	       }//end for(int j=1;j<=n;j++)
+	    }//end for(int i=1;i<=n;i++)*/
+	    //USING DYNAMIC PROGRAMMING
+	    int dp[n+1];dp[1]=0;dp[2]=1;
+	    for(int i=3;i<=n;i++){
+	        if(i%3==0) dp[i]=1+dp[i/3];
+	        else dp[i]=1+dp[i-1];
+	    }//end for
+	  
+	  cout<<dp[n]<<endl; 
+	}//end while
+	return 0;
+}

@@ -1,4 +1,6 @@
 //https://practice.geeksforgeeks.org/problems/minimum-spanning-tree/1
+HELP:https://www.youtube.com/watch?v=eB61LXLZVqs
+
 // { Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;

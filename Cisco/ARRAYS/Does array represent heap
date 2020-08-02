@@ -1,0 +1,45 @@
+//program didn't run ... chk again
+//https://practice.geeksforgeeks.org/problems/does-array-represent-heap/0
+//HELP:https://www.geeksforgeeks.org/how-to-check-if-a-given-array-represents-a-binary-heap/
+
+#include <stdio.h> 
+#include <limits.h> 
+
+// Returns true if arr[i..n-1] represents a 
+// max-heap 
+// Returns true if arr[i..n-1] represents a 
+// max-heap 
+int isHeap(int arr[],  int n) 
+{ 
+    // Start from root and go till the last internal 
+    // node 
+    
+    for (int i=0; i<=(n-2)/2; i++) 
+    { 
+        // If left child is greater, return false 
+        if (arr[2*i +1] > arr[i]) 
+                return 0; 
+  
+        // If right child is greater, return false 
+        if (2*i+2 < n && arr[2*i+2] > arr[i]) 
+                return 0; 
+    } 
+    return 1; 
+}  
+
+// Driver program 
+int main() 
+{ 
+    int t;
+    scanf("%d",&t);
+    while(t--){
+	int n;
+	scanf("%d",&n);
+     int a[n];
+	for(int i=0;i<n;i++)
+	    scanf("%d",&a[i]);
+   
+	isHeap(a, n)? printf("1\n"): printf("0\n");
+    }
+	return 0; 
+} 

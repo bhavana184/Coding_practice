@@ -1,0 +1,33 @@
+//not submitted on gfg 
+//https://practice.geeksforgeeks.org/problems/maximum-of-all-subarrays-of-size-k/0
+//check once again
+
+#include <stdio.h>
+
+
+void main() {
+	//code
+	int t;
+	scanf("%d",&t);
+	while(t--){
+	    int n,k;
+	    scanf("%d %d",&n,&k);
+	    int a[n];
+	    for(int i=0;i<n;i++)
+	        scanf("%d",&a[i]);
+	   maxK(a,n,k);
+	   printf("\n");
+	}
+}
+void maxK(int a[],int n,int k){
+    int max;
+    for(int i=0;i<=n-k;i++){
+        max=a[i];
+    for(int j=1;j<k;j++)
+    {
+        if(a[i+j]>max)
+            max=a[i+j];
+    }
+    printf("%d ",max);
+    }
+}

@@ -1,0 +1,118 @@
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+
+//int tdp[100][100]={{-1}};
+int tdp[100][100];
+//Using RECURSION
+int MCM_REC(int m[], int i, int j){
+	
+ if(i==j) return 0; //no. of matrix=1
+ 
+ int cost= INT_MAX;
+ for(int k=i;k<j;k++){
+ 	int temp= MCM_REC(m,i,k)+MCM_REC(m,k+1,j)+ m[i-1]*m[k]*m[j];
+ 	cost=min(cost,temp);
+ }
+ 
+ return cost;	
+}
+//Using Top Down approach - DP - Memoisation
+int MCM_TDP(int m[], int i, int j){
+	
+if(i==j){
+	tdp[i][j]=0;
+	return 0;
+}
+//overlapping subroblem, this means it has already been solved before and ans is stored in array dp
+if(tdp[i][j]!=-1){
+	return tdp[i][j];
+}
+
+int cost=INT_MAX;
+
+for(int k=i;k<j;k++){
+	int temp=MCM_TDP(m,i,k)+MCM_TDP(m,k+1,j)+m[i-1]*m[k]*m[j];
+	cost=min(cost,temp);
+}
+tdp[i][j]=cost;
+
+return cost;	
+} 
+//Using bottom up approach - DP - Tabulation
+int MCM_BDP(int m[], int n){
+	
+int dp[100][100];
+int i,j,k,l;
+//l = difference between i and j
+ //l=1  - length of matrix chain =1
+for(i=1;l<n;l++){
+	dp[i][i]=0;  // for diagonal	
+}
+
+for(l=2;l<n;l++){
+	for(i=1;i<=n-l;i++){
+		int j=i+l-1;
+		dp[i][j] = INT_MAX;
+		for(int k=i;k<j;k++){
+			dp[i][j]=min(dp[i][j], dp[i][k] + dp[k+1][j] + m[i-1]*m[k]*m[j] );
+		}
+	}
+}
+return dp[1][n-1];		
+}
+int main(){
+	//indexing      0 1 2 3
+	int matrices[]={1,2,3,4};
+	int n=4;
+	// matrices      A         B        C
+	//dimensions    d0 x d1   d1 x d2   d2 x d3   //d0 d1 d2 d3 ; 4 dimensions => 3 matrices
+	int i=1,j=n-1;// 
+	int mincost_REC = MCM_REC(matrices,i,j);
+	cout<<"min. cost using RECURSION: "<<mincost_REC<<endl;
+	memset(tdp,-1,sizeof tdp);
+	int mincost_TDP = MCM_TDP(matrices,i,j);
+	cout<<"min. cost using top down approach-DP: "<<mincost_TDP<<endl;
+	cout<<"Content of matrix: "<<endl;
+	for(int i=1;i<n;i++){
+		for(j=1;j<n;j++){
+			cout<<" "<<tdp[i][j]<<" ";
+		}
+		cout<<endl;	
+	}
+	cout<<endl;
+	int mincost_BDP = MCM_BDP(matrices,n);
+	cout<<"min. cost using bottom up approach-DP: "<<mincost_BDP<<endl;	
+	return 0;
+}
+
+  /*
+  
+matrices   A         B         C      
+dimension  d0 x d1  d1 x d2   d2 x d3    
+  		   1 x 2    2 x 3     3 x 4
+           
+		      0 1 2 3
+  matrices[]={1,2,3,4}    //d0, d1, d2, d3
+  no. of dimensions = n=4
+  no. of matrices= n-1=3
+  
+  */	
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

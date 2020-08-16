@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int knapsack_boundedREC(int wt[], int price[], int N, int W){
+if(N==0||W==0) return 0;//N: no. of items in showroom, W: Bag's capacity , if N or W ==0 then profit is 0
+
+//every item in showroom has two options:- include - put it in bag , exclude : don't put it in bag
+int include=0,exclude=0;
+//INCLUDING CURRENT ITEM
+if(wt[N-1]<=W)	//N-1:last item => current item here  => indexing of array is 0 to N-1 (since size of array is N)
+	include=price[N-1]+knapsack_boundedREC(wt,price,N-1,W-wt[N-1]); //call knapsack with remaining N-1 items
+//EXCLUDING CURRENT ITEM
+exclude=0+knapsack_boundedREC(wt,price,N-1,W)	;
+return max(include,exclude);
+}
+
+int knapsack_boundedBDP(int wt[], int price[], int N, int W){
+int dp[100][100]={0};
+//i: current item,i=0:no item in showroom,i=1:0th index item...
+//loop run for : 0=no item  1= 0th index item  2=1th index item  3=2nd index item  4 =3rd index item
+for(int i=0;i<=N;i++){
+	for(int w=0;w<=W;w++){
+		if(i==0||w==0) dp[i][w]=0;
+		else{
+			int include=0,exclude=0;
+			if(wt[i-1]<=w)
+				include=price[i-1]+dp[i-1][w-wt[i-1]];
+			exclude=dp[i-1][w];
+			dp[i][w]=max(include,exclude);
+		}
+	}
+}	
+return dp[N][W];	
+}
+
+int knapsack_unboundedREC(int wt[], int price[], int N, int W){
+if(N==0||W==0)return 0;
+
+int include=0,exclude=0;
+if(wt[N-1]<=W)
+	include=price[N-1]+knapsack_unboundedREC(wt,price,N,W-wt[N-1]); //item can be included more than once, so remaining item remains same N	
+exclude =0 + knapsack_unboundedREC(wt,price,N-1,W);// current item is excluded , so remaining item is N-1
+return max(include,exclude);	
+}
+
+int knapsack_unboundedBDP(int wt[], int price[], int N, int W){
+int dp[100][100]={0};
+for(int i=0;i<=N;i++){
+	for(int w=0;w<=W;w++){
+		if(i==0||w==0) dp[i][w]=0;
+		else{
+			int include=0,exclude=0;
+			if(wt[i-1]<=w)
+				include=price[i-1]+dp[i][w-wt[i-1]];//item can be included more than once, so remaining item remains same i 
+			exclude=dp[i-1][w];// current item is excluded , so remaining item is i-1
+			dp[i][w]=max(include,exclude);
+		}
+	}
+}
+return dp[N][W];	
+}
+
+int main(){
+	int wt[]={2,7,3,4};// items weight
+	int price[]={5,20,20,10};
+	int n=4;// n: no. of items in the showroom
+	int W=11;//Weight of the thief's sack
+	//thief has to maximise profit such that item's weight<=W
+	int maxprofit;
+	maxprofit=knapsack_boundedREC(wt,price,n,W);//he can pick one item once
+	cout<<"Bounded knapsack profit - using RECURSION: "<<maxprofit<<endl;
+	cout<<"Bounded knapsack profit - using Bottom up DP: "<<knapsack_boundedBDP(wt,price,n,W)<<endl;
+//	int maxprofit_unbounded =knapsack_unboundedREC(wt,price,n,W);
+	cout<<"Unbounded knapsack profit: "<<knapsack_unboundedREC(wt,price,n,W)<<endl;
+	cout<<"Bounded knapsack profit - using Bottom up DP: "<<knapsack_unboundedBDP(wt,price,n,W)<<endl;
+	
+	return 0;
+}

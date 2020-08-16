@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	//display fibonacci series upto nth term
+	int n;
+	cin>>n;
+	//array takes o(n) space
+	/*int fib[n];
+	fib[0]=0;
+	fib[1]=1;
+	for(int i=2;i<n;i++)
+		fib[i]=fib[i-1]+fib[i-2];
+	for(int i=0;i<n;i++)
+		cout<<fib[i]<<" ";*/
+	//fib[i]=ith fibonacci number
+	//takes o(1) space
+	int term0=0;
+	int term1=1;
+	cout<<term0<<" "<<term1<<" ";
+	for(int i=2;i<n;i++){
+		int res=term0+term1;
+		cout<<res<<" ";
+		term0=term1;
+		term1=res;
+	}
+		
+	
+	return 0;
+}

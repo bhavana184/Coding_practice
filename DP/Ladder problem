@@ -1,0 +1,14 @@
+//Interview bit - https://www.interviewbit.com/problems/stairs/
+int Solution::climbStairs(int A) {
+    //A :number of steps
+    int ways[A+1];//no. of ways to reach top
+    //u can take either 1 or 2 step
+    int no_of_jumps=2;
+    //No. of ways to be at ground
+    ways[0]=1;
+    //No. of ways to reach stair 1
+    ways[1]=1;
+    for(int i=2;i<=A;i++) ways[i]=ways[i-1]+ways[i-2];
+    
+    return ways[A];
+}

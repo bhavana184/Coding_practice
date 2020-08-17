@@ -1,0 +1,47 @@
+//Leetcode solution 
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+ //https://www.youtube.com/watch?v=KVDAVnTCjE0       
+         int st=0,en=0,cl=0,ml=-1;
+    //st:start index, en=end index, cl=current length,ml=maximum length
+    //to capture characters we have seen already, we need a collection
+    unordered_set<char> hs;
+    while(en<s.length()){
+       char curr=s.at(en);
+        //if hash set doesn't contain current character, add it to the hash set
+        if(hs.find(curr)==hs.end()){
+           hs.insert(curr);
+            //move end pointer by one
+            en++;
+            cl=en-st;//finding current length
+        }else{
+    //otherwise it means that our window has character that is repeating
+    //move start to the point where start character and end character is same
+    //i.e repeating character is found
+        if(ml<cl) ml=cl;
+    //since we are moving start in search of repeating character,
+    //so we check it doesn't go beyond length of string
+        while(st<=en && en<s.length()){//checks for being in range
+            if(s.at(st)!=s.at(en)){//remove the previous data from hash set
+                hs.erase(s.at(st));
+                st++;
+            }else{
+                //found repeating character
+                st++;
+                en++;
+                break;//since we have fixed the repetition, we have resize our window
+                //now current window doesn't have any character repeating
+            }
+        }//end while
+    }//end else
+        
+  }//end outer while 
+  //only one repeating character, after that there was no repeating character
+  if(ml<cl) ml=cl;
+  //if all characters in the string is distinct
+  if(ml==-1)ml=s.length();//hash set will contain entire string
+  return ml;
+        
+    }
+};

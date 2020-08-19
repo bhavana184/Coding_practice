@@ -1,0 +1,56 @@
+//https://practice.geeksforgeeks.org/problems/coin-change/0
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+//HELP:https://www.youtube.com/watch?v=DJ4a7cmjZY0&t=334s
+//HELP:youtube Jayati tiwari coin change- for fewer number of coins
+int count(int coins[],int count_cointypes,int amount){
+
+int dp[amount+1];
+//fill(dp,dp+amount+1,0);
+dp[0]=1;//if amount =0, no. of ways= 1( do not pick any coin)
+for(int j=1;j<=amount;j++) dp[j]=0;
+for(int i=0;i<count_cointypes;i++){
+    for(int j=coins[i];j<=amount;j++){
+        //exclude current coin j + include current coin j
+        dp[j]=dp[j]+dp[j-coins[i]];
+    }
+}
+return dp[amount];
+}
+/*
+//Recursive approach --> so time limit exceeded on gfg
+int count( int S[], int m, int n ) 
+{ // n = amount, m= no. of coin types, S[]=array of different coin types
+	// If n is 0 then there is 1 solution 
+	// (do not include any coin) 
+	if (n == 0) 
+		return 1; 
+	
+	// If n is less than 0 then no solution exists 
+	if (n < 0) 
+		return 0; 
+
+	// If there are no coins and n is greater than 0, then no solution exist 
+	if (m <=0 && n >= 1) 
+		return 0; 
+
+	// count is sum of solutions (i) including S[m-1] (ii) excluding S[m-1] 
+	return count( S, m - 1, n ) + count( S, m, n-S[m-1] ); 
+}
+*/
+int main() {
+	//code
+	int t;cin>>t;//total no. of test cases
+	while(t--){
+	int no_of_cointypes;cin>>no_of_cointypes;//size of the array
+	int coins[no_of_cointypes];//array of size m
+	for(int i=0;i<no_of_cointypes;i++)cin>>coins[i];//m space separated integers
+	int amount;cin>>amount;//cents
+	int ways;//no. of possible ways to make n cents
+	ways=count(coins,no_of_cointypes,amount);
+	cout<<ways<<endl;
+	}
+	return 0;
+}

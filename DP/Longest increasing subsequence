@@ -1,0 +1,28 @@
+//https://leetcode.com/problems/longest-increasing-subsequence/
+//HELP: https://www.youtube.com/watch?v=otHQ7ziVXSY&list=PLIIhpZMtp9m6EqO52jD1VQ1I-uM2bpfRT
+
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        //base case
+//if there are 0 elements or 1 element in nums array, longest subsequence size will be the size of array
+        int numsize= nums.size();
+        if(numsize<=1) return numsize;
+        
+        int dp[numsize]; 
+       // fill(nums,nums+nums.size(),1);//populate the array with value 1
+        for(int i=0;i<numsize;i++) dp[i]=1;//populate the array with value 1
+        int maxlength=-1;
+        for(int i=1;i<numsize;i++){
+            for(int j=0;j<i;j++){//covering all the elements before i
+                if(nums[j]<nums[i]){// since we want increasing subsequence, all elements before current element of subsequence should be less 
+                    dp[i]=max(dp[i],dp[j]+1);// we are adding 1  as we are including i
+//dp[j]+1 : this is the new sequence where i will add up
+//dp[i] should contain longest increasing subsequence till i , i.e. including i , so we have added 1
+                }//end if
+            }//end inner for
+            maxlength=max(maxlength,dp[i]);
+        }//end outer for
+        return maxlength;
+    }
+};

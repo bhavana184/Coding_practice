@@ -1,0 +1,42 @@
+//https://practice.geeksforgeeks.org/problems/maximum-sum-increasing-subsequence/0
+#include <iostream>
+#include<algorithm>
+using namespace std;
+
+int maxsum(long long int nums[], long long int size){
+ 
+  //base case
+    if(size==0) return 0;
+        
+        int dp[size];
+        ////populate the array with value equal to element itself 
+       for(int i=0;i<size;i++) dp[i]=nums[i];
+//since maxsum for single element is element itself
+
+        int maxsum=0;
+        for(int i=1;i<size;i++){
+            for(int j=0;j<i;j++){//covering all the elements before i
+                if((nums[j]<nums[i])&& (dp[j]+nums[i]>dp[i])){
+                    dp[i]=dp[j]+nums[i];
+                }//end if
+            }//end inner for
+          //  maxsum=max(maxsum,dp[i]);
+        }//end outer for
+        //pick maximum of all sum stored in dp array
+        for(int i=0;i<size;i++) if(dp[i]>maxsum) maxsum=dp[i];
+        return maxsum;
+}
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    long long int arraysize;
+	    cin>>arraysize;
+	    long long int A[arraysize];
+	    for(int i=0;i<arraysize;i++) cin>>A[i];
+	   cout<< maxsum(A,arraysize)<<endl;
+	    
+	}
+	return 0;
+}

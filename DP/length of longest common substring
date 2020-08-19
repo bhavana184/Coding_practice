@@ -1,0 +1,43 @@
+//HELP : https://www.geeksforgeeks.org/longest-common-substring-dp-29/
+//https://practice.geeksforgeeks.org/problems/longest-common-substring/0
+
+#include <iostream>
+#include<algorithm>
+using namespace std;
+
+int longestcommonsubstring_length(char *s1,char *s2,int size_s1,int size_s2){
+    int dp[size_s1+1][size_s2+1];
+    int max_lcs_size=0;//to store length of longest common substring
+    
+    for(int i=0;i<size_s1+1;i++){
+        for(int j=0;j<size_s2+1;j++){
+      //if length of any of the two string is 0, length of common substring =0        
+            if(i==0||j==0)
+                dp[i][j]=0; 
+           //comparing characters from last     
+            else if(s1[i-1]==s2[j-1]){
+    //call function for rest of the string excluding current matching characters of both
+            dp[i][j]=dp[i-1][j-1]+1;//+1 : we are counting the common character
+            max_lcs_size=max(max_lcs_size,dp[i][j]);
+            }
+            else 
+                dp[i][j]=0;
+        }
+    }
+    return max_lcs_size;
+}
+
+int main() {
+	int t;cin>>t;
+	while(t--){
+	    int size_s1,size_s2;
+	    cin>>size_s1>>size_s2;
+	    /*string s1,s2;
+	    getline(cin,s1);
+	    getline(cin,s2);*/
+	   char s1[size_s1],s2[size_s2];
+	    cin>>s1>>s2;
+	   cout<<longestcommonsubstring_length(s1,s2,size_s1,size_s2)<<endl;
+	}
+	return 0;
+}

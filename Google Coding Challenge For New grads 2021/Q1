@@ -1,0 +1,98 @@
+//Solution : https://leetcode.com/playground/dyGF8dKn
+//long long solve(int n,int m,int s,vector<int>a)
+#include<iostream>
+using namespace std;
+
+int find_index_of_min(vector<int>a,int n){
+	//inside find_index_of_min
+int index;int mini=a[0];
+for(int i=1;i<n;i++){
+	if(a[i]<mini) mini=a[i]	;
+}
+//cout<<" mini: "<<mini;
+for(int i=0;i<n;i++)
+	 if(a[i]==mini) {index=i;	break;}
+return index;
+}
+
+long long solve(int n,int m,int s, vector<int>a){
+	long long mini;
+    while(m>0){
+   /*     
+	cout<<"m: "<<m;
+    cout<<" array now: ";
+	for(int i=0;i<n;i++) cout<<a[i]<<" ";
+    */    
+	int min_index=find_index_of_min(a,n);
+	//
+	for(int i=min_index;i<min_index+s;i++){
+		a[i]=a[i]+1;
+	}
+    /*
+	cout<<" array after mth operation: ";
+	for(int i=0;i<n;i++) cout<<a[i]<<" ";
+	cout<<endl;
+    */
+    m--;
+	//		
+	}//end while
+	//cout<<endl;
+	/*cout<<"content of array after m operations: ";
+	for(int i=0;i<n;i++) cout<<a[i]<<" ";
+	cout<<endl;*/
+    
+    //
+    mini=a[0];
+    for(int i=1;i<n;i++)
+        if(a[i]<mini)mini=a[i];
+   // cout<<"mini: "<<mini<<endl;
+    //
+	return mini;
+}
+int main(){
+	int t;cin>>t;
+	while(t--){
+		int n,m,s;
+		cin>>n>>m>>s;
+		vector<int> a(n);
+		for(int i=0;i<n;i++) cin>>a[i];
+		int mini=solve(n,m,s,a);
+		cout<<mini<<endl;	
+		//solve(n,m,s,a);
+	}
+	return 0;
+}
+
+/*TEST CASES-
+9                             
+6 5 2
+1 2 3 4 5 6                   
+8 5 1
+98 97 23 13 27 100 75 42
+8 4 1
+63 82 30 5 51 60 61 64
+5 10 1
+12 24 35 86 39
+5 3 1
+59 51 48 27 82
+8 10 3 
+66 30 100 71 82 13 66 65
+7 9 1
+73 77 60 100 94 24 31
+10 6 5
+24 41 100 70 97 89 38 68 41 93
+10 4 3
+88 36 72 72 37 76 83 18 76 54
+
+SOLUTION:
+4
+18
+9
+22
+30
+23
+32
+30
+22
+
+*/

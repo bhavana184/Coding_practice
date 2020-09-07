@@ -1,4 +1,4 @@
-/*
+/*https://www.geeksforgeeks.org/check-whether-number-duck-number-not/
 A Duck number is a positive number which has zeroes present in it, For example 3210, 8050896, 70709 are all Duck numbers. Please note that a numbers with only leading 0s is not considered as Duck Number. For example, numbers like 035 or 0012 are not considered as Duck Numbers. A number like 01203 is considered as Duck because there is a non-leading 0 present in it.
 Examples :
 Input : 707069   Output : It is a duck number.   Explanation: 707069 does not contains zeros at the beginning.

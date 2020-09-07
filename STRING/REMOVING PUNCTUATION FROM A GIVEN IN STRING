@@ -19,7 +19,7 @@ int main(){
 		
 		if(ispunct(s[i])) {
 			s.erase(i,1);//erase 1 charcter from index i
-			i--;
+			i--;//to handle cases with consecutive punctuations - eg:hello!,
 			len=s.length();
 		}
 		

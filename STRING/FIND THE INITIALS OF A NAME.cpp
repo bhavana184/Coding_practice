@@ -1,3 +1,4 @@
+//https://www.geeksforgeeks.org/program-find-initials-name/
 /*FIND THE INITIALS OF A NAME
 Given a string name, we have to find the initials of the name
 Examples:

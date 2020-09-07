@@ -1,0 +1,33 @@
+//https://www.geeksforgeeks.org/missing-characters-make-string-pangram/
+//MISSING CHARACTERS TO MAKE A STRING PANGRAM
+/*Given a string, find all characters that are missing from the string, i.e., the characters that can make string a Pangram. 
+We need to print output in alphabetic order.*/
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+
+void missingChar_Pangram(string str){
+	
+	int n=str.length();
+	vector<int>present(26,0);
+	int index;
+	for(int i=0;i<n;i++){
+		if(str[i]>='A' && str[i]<='Z') index=str[i]-'A';
+		else if(str[i]>='a' && str[i]<='z') index=str[i]-'a';
+		else continue;
+		present[index]=1;
+	}
+	for(int i=0;i<26;i++) cout<<"i: "<<i<<" present[i]: "<<present[i]<<endl;
+	for(int i=0;i<26;i++)
+		if(present[i]==0) cout<<(char)(i +'a')<<" ";//display missing letters in lowercase
+		//to display in uppercase - do (char) (i+'A')
+	cout<<endl;
+}
+int main(){
+	string s;
+	getline(cin,s);
+	
+	missingChar_Pangram(s);
+	return 0;
+}

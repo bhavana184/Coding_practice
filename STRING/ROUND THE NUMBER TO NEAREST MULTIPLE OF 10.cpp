@@ -1,4 +1,5 @@
-/*ROUND THE NUMBER TO NEAREST MULTIPLE OF 10
+/*https://www.geeksforgeeks.org/round-the-given-number-to-nearest-multiple-of-10/
+ROUND THE NUMBER TO NEAREST MULTIPLE OF 10
 Given a positive integer n, round it to nearest whole number having zero as last digit.
 Examples: Input : 4722 Output : 4720
 Input : 38   Output : 40

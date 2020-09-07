@@ -1,3 +1,4 @@
+//https://www.geeksforgeeks.org/quick-way-check-characters-string/
 /*QUICK WAY TO CHECK IF ALL THE CHARACTERS OF THE STRING ARE SAME*/
 /*Given a string, check if all the characters of the string are same or not.
 Examples:Input : s = "geeks"    Output : No

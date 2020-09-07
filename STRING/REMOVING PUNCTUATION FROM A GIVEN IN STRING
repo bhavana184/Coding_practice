@@ -1,0 +1,29 @@
+//https://www.geeksforgeeks.org/removing-punctuations-given-string/
+/*REMOVING PUNCTUATION FROM A GIVEN STRING
+Given a string, remove the punctuation from the string if the given character is a punctuation character as classified by the current C locale.
+The default C locale classifies these characters as punctuation: !"#$%&'()*+,-./:;?@[\]^_`{|}~ 
+Examples:
+Input : %welcome' to @geeksforgeek<s      Output : welcome to geeksforgeeks
+Input : Hello!!!, he said ---and went.    Output : Hello he said and went
+*/
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+int main(){
+	
+	string s;
+	getline(cin,s);
+	
+	for(int i=0,len=s.length();i<len;i++){
+		
+		if(ispunct(s[i])) {
+			s.erase(i,1);//erase 1 charcter from index i
+			i--;
+			len=s.length();
+		}
+		
+	}
+	for(int i=0;i<s.length();i++) cout<<s[i];	
+	return 0;
+}

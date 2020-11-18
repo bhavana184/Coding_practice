@@ -1,0 +1,32 @@
+//TIME TAKEN:-O(Logn) --n=no. of elements in the array
+#include<iostream>
+using namespace std;
+
+int binarysearch(int *a,int n,int left,int right,int x){
+	//int pos=-1;
+	
+	if(left<=right){
+		int mid=(left+right)/2;
+		if(a[mid]==x) return mid;
+		
+		if(a[mid]<x) return binarysearch(a,n,left,mid-1,x);
+		else return binarysearch(a,n,mid+1,right,x);
+	}
+	return -1;
+
+}
+int main(){
+	int n;
+	cout<<"Enter your array size, n: ";
+	cin>>n;
+	int a[n];
+	cout<<"Enter elements of array: ";
+	for(int i=0;i<n;i++)cin>>a[i];
+	cout<<"enter an element to be searched in array: ";
+	int x;
+	cin>>x;
+	int index= binarysearch(a,n,0,n-1,x);
+	if(index==-1) cout<<"Element "<<x<<" is not present in the array"<<endl;
+	else cout<<"Element "<<x<<" is present in the array at position "<<index+1<<endl;
+	return 0;
+}
